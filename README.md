@@ -1,15 +1,32 @@
 # Automatic regionalization of model parameters for hydrological models
+<<<<<<< HEAD
+=======
+Moritz Feigl, Stephan Thober, Robert Schweppe, Mathew Herrnegger, Luis Samaniego and Karsten Schulz
+>>>>>>> master
 
 <p align="center">
   <img width="460" src="https://github.com/MoritzFeigl/FSO_mHM/blob/master/fso.png">
 </p>
 
+<<<<<<< HEAD
 Accompanying code for the publication "Automatic regionalization of model parameters for hydrological models" by Moritz Feigl, Stephan Thober, Robert Schweppe, Mathew Herrnegger, Luis Samaniego and Karsten Schulz.
 
 The code in this repository was used to produce all results and figures in our manuscript. The data can be aquired from http://www.ufz.de/index.php?en=41160.
 
 
 ### Content of the repository
+=======
+Accompanying code for the publication "Automatic regionalization of model parameters for hydrological models"
+
+The code in this repository was used to produce all results and figures in our manuscript. The data can be aquired from http://www.ufz.de/index.php?en=41160
+
+
+### Content of the repository
+
+
+### Scripts
+See the [scripts](scripts) folder include all scripts used to generate the paper results.
+>>>>>>> master
 - `scripts` All scripts used to generate the paper results. This includes code for the mHM setup, FSO VAE training and generator functions, optimization routines, additional helper functions, model optimization and results analysis.
 - `tests` Test for the mHM data preparation.
 - `utils` utils functions for the nHN data preparation.
