@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/446423033.svg)](https://zenodo.org/badge/latestdoi/446423033)
+
 # Automatic regionalization of model parameters for hydrological models
 
 <p align="center">
