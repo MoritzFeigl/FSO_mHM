@@ -1,0 +1,141 @@
+&main
+out_filename = '<path>/sub_<id>_mHM_parameters.nc'
+coordinate_aliases(1:6,1) = 'x', 'lon', 'lon_out', 'lon_all', 'xc_l0',
+                            'xc'
+coordinate_aliases(1:6,2) = 'y', 'lat', 'lat_out', 'lat_all', 'yc_l0',
+                            'yc'
+coordinate_aliases(1:6,3) = 'z', 'horizon', 'horizon_out', 'horizon_all',
+                            'horizon_till', 'horizon_notill'
+coordinate_aliases(1:3,4) = 't_LC', 'land_cover_period', 'land_cover_period_out'
+coordinate_aliases(1:3,5) = 't_LAI', 'month_of_year', 'time_all'
+/
+
+&data_arrays
+name(1:21) = 'bd', 'sand', 'clay', 'land_cover', 'bd_till', 'pOM',
+              'pM', 'bd_eff_till', 'KSat', 'KSat_till_temp', 'KSat_till',
+              'KSat_notill', 'KSat_all', 'sand_till', 'clay_till', 'ThetaS_till',
+              'vGenu_n_till', 'vGenu_alpha_till', 'ThetaS_notill', 'vGenu_n_notill',
+              'vGenu_alpha_notill'
+from_file(1:4) = '<path>/FSO_mHM_major_basins/static/sub_<id>/mpr/bd.nc',
+                  '<path>/FSO_mHM_major_basins/static/sub_<id>/mpr/sand.nc',
+                  '<path>/FSO_mHM_major_basins/static/sub_<id>/mpr/clay.nc',
+                  '<path>/FSO_mHM_major_basins/static/sub_<id>/mpr/land_cover.nc'
+to_file(1:21) = .false., .false., .false., .false., .false., .false.,
+                .false., .false., .false., .false., .true., .true.,
+                .false., .false., .false., .true., .true., .false.,
+                .true., .true., .false.
+limits(1,2) = 0.1
+limits(1,3) = 0.1
+limits(1,9) = 1.1
+limits(1:2,16) = 0.01, 1.0
+limits(1,17) = 1.01
+limits(1,18) = 1e-05
+limits(1:2,19) = 0.01, 1.0
+limits(1,20) = 1.01
+limits(1,21) = 1e-05
+from_data_arrays(1,5) = 'bd', , ,
+from_data_arrays(1,6) = 'land_cover', , ,
+from_data_arrays(1,7) = 'pOM', , ,
+from_data_arrays(1:3,8) = 'bd_till', 'pOM', 'pM'
+from_data_arrays(1:2,9) = 'sand', 'clay'
+from_data_arrays(1,10) = 'KSat'
+from_data_arrays(1:3,11) = 'KSat_till_temp', 'bd_till', 'bd_eff_till'
+from_data_arrays(1,12) = 'KSat'
+from_data_arrays(1:2,13) = 'KSat_till', 'KSat_notill'
+from_data_arrays(1,14) = 'sand'
+from_data_arrays(1,15) = 'clay'
+from_data_arrays(1:3,16) = 'sand_till', 'clay_till', 'bd_eff_till'
+from_data_arrays(1:2,17) = 'sand_till', 'clay_till'
+from_data_arrays(1:3,18) = 'sand_till', 'clay_till', 'bd_eff_till'
+from_data_arrays(1:3,19) = 'sand', 'clay', 'bd'
+from_data_arrays(1:2,20) = 'sand', 'clay'
+from_data_arrays(1:3,21) = 'sand', 'clay', 'bd'
+target_coord_names(1:4,5) = 'land_cover_period', 'lat', 'lon', 'horizon_till'
+target_coord_names(1:4,6) = 'land_cover_period', 'lat', 'lon', 'horizon_till'
+target_coord_names(1:4,10) = 'land_cover_period', 'lat', 'lon', 'horizon_till'
+target_coord_names(1:4,12) = 'land_cover_period', 'lat', 'lon', 'horizon_notill'
+target_coord_names(1:4,14) = 'land_cover_period', 'lat', 'lon', 'horizon_till'
+target_coord_names(1:4,15) = 'land_cover_period', 'lat', 'lon', 'horizon_till'
+target_coord_names(1:4,19) = 'land_cover_period', 'lat', 'lon', 'horizon_notill'
+target_coord_names(1:4,20) = 'land_cover_period', 'lat', 'lon', 'horizon_notill'
+target_coord_names(1:4,21) = 'land_cover_period', 'lat', 'lon', 'horizon_notill'
+upscale_ops(1:4,5) = '1.0', '1.0', '1.0', '1.0'
+upscale_ops(1:4,6) = '1.0', '1.0', '1.0', '1.0'
+upscale_ops(1:4,10) = '1.0', '1.0', '1.0', '1.0'
+upscale_ops(1:4,12) = '1.0', '1.0', '1.0', '1.0'
+upscale_ops(1:4,14) = '1.0', '1.0', '1.0', '1.0'
+upscale_ops(1:4,15) = '1.0', '1.0', '1.0', '1.0'
+upscale_ops(1:4,19) = '1.0', '1.0', '1.0', '1.0'
+upscale_ops(1:4,20) = '1.0', '1.0', '1.0', '1.0'
+upscale_ops(1:4,21) = '1.0', '1.0', '1.0', '1.0'
+transfer_func(1:21) = , , , , , 'where (land_cover > 0.5 .and. land_cover < 1.5) orgMatterContent_forest +orgMatterContent_pervious else where(land_cover < 2.5) orgMatterContent_impervious else where (land_cover < 3.5) orgMatterContent_pervious',
+                       '100.0 - pOM', '100.0 / ((pOM / BulkDens_OrgMatter) + (pM / bd_till))',
+                       'PTF_Ks_curveSlope * exp((PTF_Ks_constant + PTF_Ks_sand * sand - PTF_Ks_clay * clay) * log(Ks_c_base))',
+                       , 'KSat_till_temp * (bd_till / bd_eff_till)',
+                       , , , , 'where (sand_till < vGenu_tresh ) PTF_lower66_5_constant + PTF_lower66_5_clay *clay_till + PTF_lower66_5_Db * bd_eff_till else where ( sand_till >= vGenu_tresh )PTF_higher66_5_constant + PTF_higher66_5_clay *clay_till + PTF_higher66_5_Db * bd_eff_till',
+                       'where (sand_till < vGenu_tresh )vGenu_N_c01 - vGenu_N_c02 * (sand_till ** (vGenu_N_c03)) + vGenu_N_c04 * (clay_till **(vGenu_N_c05))else where ( sand_till >= vGenu_tresh )vGenu_N_c10 + vGenu_N_c11 * (sand_till ** (vGenu_N_c12)) + vGenu_N_c13 * (clay_till **(vGenu_N_c14))',
+                       'where (sand_till < vGenu_tresh )exp(vGenu_N_c06 + vGenu_N_c07 * sand_till + vGenu_N_c08 * clay_till - vGenu_N_c09 * bd_eff_till)else where ( sand_till >= vGenu_tresh )exp(vGenu_N_c15 + vGenu_N_c16 * sand_till + vGenu_N_c17 * clay_till - vGenu_N_c18 * bd_eff_till)',
+                       'where (sand < vGenu_tresh ) PTF_lower66_5_constant + PTF_lower66_5_clay *clay + PTF_lower66_5_Db * bd else where ( sand >= vGenu_tresh )PTF_higher66_5_constant + PTF_higher66_5_clay *clay + PTF_higher66_5_Db * bd',
+                       'where (sand < vGenu_tresh )vGenu_N_c01 - vGenu_N_c02 * (sand **(vGenu_N_c03)) + vGenu_N_c04 * (clay **(vGenu_N_c05))else where ( sand >= vGenu_tresh )vGenu_N_c10 + vGenu_N_c11 * (sand**(vGenu_N_c12)) + vGenu_N_c13 * (clay **(vGenu_N_c14))',
+                       'where (sand < vGenu_tresh )exp(vGenu_N_c06 + vGenu_N_c07 * sand + vGenu_N_c08 * clay - vGenu_N_c09 * bd)else where ( sand >= vGenu_tresh )exp(vGenu_N_c15 + vGenu_N_c16 * sand + vGenu_N_c17 * clay - vGenu_N_c18 * bd)'
+/
+
+&coordinates
+coord_name(1:25) = 'horizon', 'land_cover_period', , , , , , , , 'horizon_out',
+                   'lat_out', 'lon_out', 'land_cover_period_out', ,
+                   , , , , , 'horizon_till', 'horizon_notill', 'horizon_all',
+                   'time_all', 'lon_all', 'lat_all'
+coord_stagger(1:25) = 'end', 'start', , , , , , , , 'end', 'center',
+                      'center', 'end', , , , , , , 'end', 'end', 'end',
+                      'end', 'end', 'end'
+coord_attribute_names(1:5,10) = 'standard_name', 'long_name', 'units',
+                                'positive', 'axis'
+coord_attribute_names(1:5,11) = 'standard_name', 'long_name', 'units',
+                                'positive', 'axis'
+coord_attribute_names(1:5,12) = 'standard_name', 'long_name', 'units',
+                                'positive', 'axis'
+coord_attribute_names(1:5,13) = 'standard_name', 'long_name', 'units',
+                                'positive', 'axis'
+coord_attribute_values(1:5,10) = 'depth', 'positive downwards upper boundary of soil horizons',
+                                 'm', 'down', 'Z'
+coord_attribute_values(1:5,11) = 'latitude', 'latitude', 'm', 'up',
+                                 'Y'
+coord_attribute_values(1:5,12) = 'longitude', 'longitude', 'm', 'up',
+                                 'X'
+coord_attribute_values(1:5,13) = 'land cover period', 'start year for period of constant land cover',
+                                 'years', 'up', 'T'
+coord_from_values_bound(1:21) = , , , , , , , , , 0.0, , , 1950, , ,
+                                , , , , 0.0, 0.25
+coord_from_values(1:3,10) = 0.05, 0.25, 2.0
+coord_from_values(1:3,13) = 2000, 2006, 2011
+coord_from_values(1:2,20) = 0.05, 0.25
+coord_from_values(1,21) = 2.0
+coord_from_range_step(1:12) = , , , , , , , , , , 4000, 4000
+coord_from_range_count(1:25) = , , , , , , , , , , , , , , , , , , ,
+                               , , 1, 1, 1, 1
+/
+
+&parameters
+parameter_names(1:55) = 'BulkDens_OrgMatter', '100.0', '1.0', 'Ks_c_base',
+                        'vGenu_tresh', 'vGenu_N_c01', 'vGenu_N_c02',
+                        'vGenu_N_c03', 'vGenu_N_c04', 'vGenu_N_c05',
+                        'vGenu_N_c06', 'vGenu_N_c07', 'vGenu_N_c08',
+                        'vGenu_N_c09', 'vGenu_N_c10', 'vGenu_N_c11',
+                        'vGenu_N_c12', 'vGenu_N_c13', 'vGenu_N_c14',
+                        'vGenu_N_c15', 'vGenu_N_c16', 'vGenu_N_c17',
+                        'vGenu_N_c18', , , , , 'FieldCap_c1', 'FieldCap_c2',
+                        'PWP_c', 'PWP_matPot_ThetaR', '0.1', '0.99',
+                        '2.0', 'gain_loss_GWreservoir_karstic', 'Default_Wind_Measurement_Height',
+                        'karman', 'LAI_factor_surfResi', 'LAI_offset_surfResi',
+                        'fracSealed_cityArea', , '4.5', '5.5', '6.5',
+                        '7.5', '8.5', '9.5', '10.5', '0.5', '1.5', '2.5',
+                        '3.5', '360.0', '1000.0', '0.0'
+parameter_values(1:55) = 0.224, 100.0, 1.0, 10.0, 66.5, 1.392, 0.418,
+                         -0.024, 1.212, -0.704, -0.648, 0.023, 0.044,
+                         3.168, -2.562, 7e-09, 4.004, 3.75, -0.016,
+                         -4.197, 0.013, 0.076, 0.276, , , , , -0.6,
+                         2.0, 1.0, 15000.0, 0.1, 0.99, 2.0, 1.0, 10.0,
+                         0.41, 0.3, 1.2, 0.6, , 4.5, 5.5, 6.5, 7.5,
+                         8.5, 9.5, 10.5, 0.5, 1.5, 2.5, 3.5, 360.0,
+                         1000.0, 0.0
+/

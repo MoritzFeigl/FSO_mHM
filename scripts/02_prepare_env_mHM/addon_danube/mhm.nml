@@ -1,0 +1,131 @@
+&project_description
+    project_details = 'FSO mHM coupling'
+    setup_description = 'forward run setup for major German basins based on Zink et al. (2017)'
+    simulation_type = 'historical simulation'
+    conventions = 'XXX'
+    contact = 'robert.schweppe@ufz.de'
+    mhm_details = 'Helmholtz Center for Environmental Research - UFZ, Department Computational Hydrosystems, Stochastic Hydrology Group'
+    history = 'first test run'
+/
+
+&mainconfig
+    iflag_cordinate_sys = 0
+    nbasins = 1
+    resolution_hydrology(1) = 4000
+    l0basin(1) = 1
+    write_restart = .true.
+/
+
+&mainconfig_mhm_mrm
+    dir_restartin(1) = ''
+    resolution_routing(1) = 4000
+    timestep = 1
+    read_restart = .false.
+    optimize = .false.
+    optimize_restart = .false.
+    opti_method = 1
+    opti_function = 10
+/
+
+&mainconfig_mrm
+    alma_convention = .true.
+    varnametotalrunoff = 'total_runoff'
+    filenametotalrunoff = 'total_runoff'
+    gw_coupling = .false.
+/
+
+&directories_general
+    dirconfigout = '/work/ottor/FSO_mHM_major_basins/output/sub_6342800/'
+    dir_restartout(1) = '/work/ottor/FSO_mHM_major_basins/output/sub_6342800/'
+    dir_out(1) = '/work/ottor/FSO_mHM_major_basins/output/sub_6342800/'
+/
+
+&directories_mhm
+    path_mpr_nml(1) = 'mpr.nml'
+    dir_precipitation(1) = '/work/ottor/FSO_mHM_major_basins/forcing/sub_6342800/'
+    dir_temperature(1) = '/work/ottor/FSO_mHM_major_basins/forcing/sub_6342800/'
+    dir_referenceet(1) = '/work/ottor/FSO_mHM_major_basins/forcing/sub_6342800/'
+    dir_mintemperature(1) = '/work/ottor/FSO_mHM_major_basins/forcing/sub_6342800/'
+    dir_maxtemperature(1) = '/work/ottor/FSO_mHM_major_basins/forcing/sub_6342800/'
+    dir_netradiation(1) = '/work/ottor/FSO_mHM_major_basins/forcing/sub_6342800/'
+    dir_absvappressure(1) = '/work/ottor/FSO_mHM_major_basins/forcing/sub_6342800/'
+    dir_windspeed(1) = '/work/ottor/FSO_mHM_major_basins/forcing/sub_6342800/'
+    time_step_model_inputs(1) = 0
+    timestep_lai_input = 0
+/
+
+&directories_mrm
+    dir_gauges(1) = '/work/ottor/FSO_mHM_major_basins/static/sub_6342800/routing/'
+    dir_total_runoff(1) = '/work/ottor/FSO_mHM_major_basins/static/sub_6342800/routing/'
+    dir_bankfull_runoff(1) = '/work/ottor/FSO_mHM_major_basins/static/sub_6342800/routing/'
+/
+
+&optional_data
+    dir_soil_moisture(1) = '/work/ottor/FSO_mHM_major_basins/static/optional_data/'
+    nsoilhorizons_sm_input = 1
+    timestep_sm_input = -2
+    file_tws(1) = '/work/ottor/FSO_mHM_major_basins/static/optional_data/tws_basin_1.txt'
+    dir_neutrons(1) = '/work/ottor/FSO_mHM_major_basins/static/optional_data/'
+    dir_evapotranspiration(1) = '/work/ottor/FSO_mHM_major_basins/static/optional_data/'
+    timestep_et_input = -2
+/
+
+&processselection
+    processcase(1:10) = 1, 1, 1, 1, 0, 1, 1, 2, 1, 1
+/
+
+&time_periods
+    warming_days(1) = 1825
+    eval_per(1)%dend = 31
+    eval_per(1)%dstart = 1
+    eval_per(1)%mend = 12
+    eval_per(1)%mstart = 1
+    eval_per(1)%yend = 2004
+    eval_per(1)%ystart = 2000
+/
+
+&lcover
+    nlandcoverperiods = 3
+/
+
+&evaluation_gauges
+    ngaugestotal = 1
+    nogauges_basin(1) = 1
+    gauge_id(1,1) = 6342800
+    gauge_filename(1,1) = '6342800.txt'
+/
+
+&inflow_gauges
+    ninflowgaugestotal = 4
+    noinflowgauges_basin(1) = 4
+    inflowgauge_id(1,1:4) = 9000001, 9000002, 9000003, 9000004
+    inflowgauge_filename(1,1:4) = '9000001.txt', '9000002.txt' '9000003.txt', '9000004.txt'
+    inflowgauge_headwater(1,1:4) = .false., .false., .false., .false.
+/
+
+&panevapo
+    evap_coeff = 1.3, 1.2, 0.72, 0.75, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0,
+                 1.5
+/
+
+&nightdayratio
+    read_meteo_weights = .false.
+    fnight_prec = 0.46, 0.5, 0.52, 0.51, 0.48, 0.5, 0.49, 0.48, 0.52, 0.56,
+                  0.5, 0.47
+    fnight_pet = 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1,
+                 0.1
+    fnight_temp = -0.76, -1.3, -1.88, -2.38, -2.72, -2.75, -2.74, -3.04,
+                  -2.44, -1.6, -0.94, -0.53
+/
+
+&optimization
+    niterations = 7
+    seed = 1235876
+    dds_r = 0.2
+    sa_temp = -9.0
+    sce_ngs = 2
+    sce_npg = -9
+    sce_nps = -9
+    mcmc_opti = .false.
+    mcmc_error_params = 0.01, 0.6
+/

@@ -1,0 +1,1 @@
+The script [submit_asc2nc_py.sh](submit_asc2nc_py.sh) was run on Eve to execute the transformation of ascii files to netcdf files for mHM v.6 based on the dataset from Zink et al. See the script for specific information.

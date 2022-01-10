@@ -1,0 +1,1 @@
+This folders contains the namelists as it is required for training FSO ([mpr_predictor_FSO_only.nml](mpr_predictor_FSO_only.nml) and [mpr_global_parameter_mhm.nml](mpr_global_parameter_mhm.nml)). It is a subset of the original mhm (v.6) namelist and contains placholders to be replaced for the correct selection of input data.

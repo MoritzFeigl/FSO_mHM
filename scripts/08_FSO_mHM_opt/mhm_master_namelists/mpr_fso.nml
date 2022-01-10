@@ -1,0 +1,702 @@
+&main
+    out_filename = '../../output/<BASIN>/mHM_parameters.nc'
+    coordinate_aliases(1:6,1) = 'x', 'lon', 'lon_out', 'lon_all', 'xc_l0',
+                                'xc'
+    coordinate_aliases(1:6,2) = 'y', 'lat', 'lat_out', 'lat_all', 'yc_l0',
+                                'yc'
+    coordinate_aliases(1:6,3) = 'z', 'horizon', 'horizon_out', 'horizon_all',
+                                'horizon_till', 'horizon_notill'
+    coordinate_aliases(1:3,4) = 't_LC', 'land_cover_period', 'land_cover_period_out'
+    coordinate_aliases(1:3,5) = 't_LAI', 'month_of_year', 'time_all'
+/
+
+&coordinates
+    coord_name(1:25) = 'horizon', 'land_cover_period', 'month_of_year', , , , , , , 'horizon_out',
+                       'lat_out', 'lon_out', 'land_cover_period_out', ,
+                       , , , , , 'horizon_till', 'horizon_notill', 'horizon_all',
+                       'time_all', 'lon_all', 'lat_all'
+    coord_stagger(1:25) = 'end', 'start', 'start', , , , , , , 'end', 'center',
+                          'center', 'end', , , , , , , 'end', 'end', 'end',
+                          'end', 'end', 'end'
+    coord_attribute_names(1:5,1) = , , , , ,
+    coord_attribute_names(1:5,2) = , , , , ,
+    coord_attribute_names(1:5,3) = , , , , ,
+    coord_attribute_names(1:5,4) = , , , , ,
+    coord_attribute_names(1:5,5) = , , , , ,
+    coord_attribute_names(1:5,6) = , , , , ,
+    coord_attribute_names(1:5,7) = , , , , ,
+    coord_attribute_names(1:5,8) = , , , , ,
+    coord_attribute_names(1:5,9) = , , , , ,
+    coord_attribute_names(1:5,10) = 'standard_name', 'long_name', 'units',
+                                    'positive', 'axis'
+    coord_attribute_names(1:5,11) = 'standard_name', 'long_name', 'units',
+                                    'positive', 'axis'
+    coord_attribute_names(1:5,12) = 'standard_name', 'long_name', 'units',
+                                    'positive', 'axis'
+    coord_attribute_names(1:5,13) = 'standard_name', 'long_name', 'units',
+                                    'positive', 'axis'
+    coord_attribute_values(1:5,1) = , , , , ,
+    coord_attribute_values(1:5,2) = , , , , ,
+    coord_attribute_values(1:5,3) = , , , , ,
+    coord_attribute_values(1:5,4) = , , , , ,
+    coord_attribute_values(1:5,5) = , , , , ,
+    coord_attribute_values(1:5,6) = , , , , ,
+    coord_attribute_values(1:5,7) = , , , , ,
+    coord_attribute_values(1:5,8) = , , , , ,
+    coord_attribute_values(1:5,9) = , , , , ,
+    coord_attribute_values(1:5,10) = 'depth', 'positive downwards upper boundary of soil horizons',
+                                     'm', 'down', 'Z'
+    coord_attribute_values(1:5,11) = 'latitude', 'latitude', 'm', 'up',
+                                     'Y'
+    coord_attribute_values(1:5,12) = 'longitude', 'longitude', 'm', 'up',
+                                     'X'
+    coord_attribute_values(1:5,13) = 'land cover period', 'start year for period of constant land cover',
+                                     'years', 'up', 'T'
+    coord_from_values_bound(1:21) = , , , , , , , , , 0.0, , , 1950, , ,
+                                    , , , , 0.0, 0.25
+    coord_from_values(1:3,1) = , , ,
+    coord_from_values(1:3,2) = , , ,
+    coord_from_values(1:3,3) = , , ,
+    coord_from_values(1:3,4) = , , ,
+    coord_from_values(1:3,5) = , , ,
+    coord_from_values(1:3,6) = , , ,
+    coord_from_values(1:3,7) = , , ,
+    coord_from_values(1:3,8) = , , ,
+    coord_from_values(1:3,9) = , , ,
+    coord_from_values(1:3,10) = 0.05, 0.25, 2.0
+    coord_from_values(1:3,11) = , , ,
+    coord_from_values(1:3,12) = , , ,
+    coord_from_values(1:3,13) = 2000, 2006, 2011
+    coord_from_values(1:2,14) = , ,
+    coord_from_values(1:2,15) = , ,
+    coord_from_values(1:2,16) = , ,
+    coord_from_values(1:2,17) = , ,
+    coord_from_values(1:2,18) = , ,
+    coord_from_values(1:2,19) = , ,
+    coord_from_values(1:2,20) = 0.05, 0.25
+    coord_from_values(1,21) = 2.0
+    coord_from_range_step(1:12) = , , 1, , , , , , , , 4000, 4000
+    coord_from_range_count(1:25) = , , 12, , , , , , , , , , , , , , , , ,
+                                   , , 1, 1, 1, 1
+/
+
+&parameters
+    parameter_names(1:86) = 'BulkDens_OrgMatter', '100.0', '1.0', 'Ks_c_base',
+                            'vGenu_tresh', 'vGenu_N_c01', 'vGenu_N_c02',
+                            'vGenu_N_c03', 'vGenu_N_c04', 'vGenu_N_c05',
+                            'vGenu_N_c06', 'vGenu_N_c07', 'vGenu_N_c08',
+                            'vGenu_N_c09', 'vGenu_N_c10', 'vGenu_N_c11',
+                            'vGenu_N_c12', 'vGenu_N_c13', 'vGenu_N_c14',
+                            'vGenu_N_c15', 'vGenu_N_c16', 'vGenu_N_c17',
+                            'vGenu_N_c18', , , , , 'FieldCap_c1', 'FieldCap_c2',
+                            'PWP_c', 'PWP_matPot_ThetaR', '0.1', '0.99',
+                            '2.0', 'gain_loss_GWreservoir_karstic', 'Default_Wind_Measurement_Height',
+                            'karman', 'LAI_factor_surfResi', 'LAI_offset_surfResi',
+                            'fracSealed_cityArea', , '4.5', '5.5', '6.5',
+                            '7.5', '8.5', '9.5', '10.5', '0.5', '1.5', '2.5',
+                            '3.5', '360.0', '1000.0', '0.0', '-0.5', '11.5',
+                            '12.5', '98.5', '99.5', '100.5', '101.5', '102.5',
+                            '103.5', '104.5', '105.5', '106.5', '107.5',
+                            '108.5', '109.5', '110.5', '111.5', '112.5'
+    parameter_values(1:86) = 0.224, 100.0, 1.0, 10.0, 66.5, 1.392, 0.418,
+                             -0.024, 1.212, -0.704, -0.648, 0.023, 0.044,
+                             3.168, -2.562, 7e-09, 4.004, 3.75, -0.016,
+                             -4.197, 0.013, 0.076, 0.276, , , , , -0.6,
+                             2.0, 1.0, 15000.0, 0.1, 0.99, 2.0, 1.0, 10.0,
+                             0.41, 0.3, 1.2, 0.6, , 4.5, 5.5, 6.5, 7.5,
+                             8.5, 9.5, 10.5, 0.5, 1.5, 2.5, 3.5, 360.0,
+                             1000.0, 0.0, -0.5, 11.5, 12.5, 98.5, 99.5,
+                             100.5, 101.5, 102.5, 103.5, 104.5, 105.5, 106.5,
+                             107.5, 108.5, 109.5, 110.5, 111.5, 112.5
+/
+
+&data_arrays
+    name(1:117) = 'land_cover', 'clay', 'clay_till', 'clay_notill', 'sand',
+                  'sand_till', 'sand_notill', 'bd', 'bd_till', 'bd_notill',
+                  'dem', 'slope', 'aspect', 'pOM', 'pM', 'bd_eff_till',
+                  'slope_horizon', 'dem_horizon', 'aspect_horizon',
+                  'aspect_till', 'dem_till', 'slope_till', 'aspect_notill', 'dem_notill', 'slope_notill',
+                  'KSat', 'KSat_till_temp', 'KSat_till', 'KSat_notill',
+                  'KSat_all', 'ThetaS_till', 'vGenu_n_till', 'vGenu_alpha_till',
+                  'ThetaS_notill', 'vGenu_n_notill', 'vGenu_alpha_notill',
+                  'FieldCap_till', 'FieldCap_notill', 'PermWiltPoint_temp_till',
+                  'PermWiltPoint_till', 'PermWiltPoint_temp_notill', 'PermWiltPoint_notill',
+                  'bd_all', 'ThetaS_all', 'PermWiltPoint_out', 'FieldCap_total',
+                  'SatSoilMoistureContent_total', 'VarKSat_horizontal_total',
+                  'VarKSat_vertical_total', 'SoilMoistureSaturationDeficit',
+                  'VarKSat_horizontal_relative', 'VarKSat_vertical_relative',
+                  'ThetaS_out', 'z_lower_bound', 'z_upper_bound', 'L1_SatSoilMoisture',
+                  'PermWiltPoint_temp', 'FieldCap_out', 'FieldCap_absolute_temp',
+                  'FieldCap_temp', 'L1_SoilMoistureExponent', 'L1_FieldCap',
+                  'L1_PermWiltPoint', 'land_cover_horizon', 'fRoots_temp',
+                  , , , , , , 'fRoots_total', 'fRoots_rescaled_total', 'L1_fRoots',
+                  'L1_UnsatThreshold', 'slope_emp', 'land_cover_horizon_all',
+                  'FastFlow_temp', 'L1_SlowFlow', 'L1_FastFlow', 'L1_Alpha',
+                  'L1_Kperco', 'karstic', 'L1_KarstLoss', 'classunit', 'L1_kBaseFlow',
+                  'L1_SealedThresh', 'L1_Jarvis_Threshold', 'forest_frac',
+                  'sealed_temp', , 'L1_SealedFraction', 'pervious_frac',
+                  'L1_TempThresh', 'L1_DegDayInc', 'L1_DegDayNoPre', 'L1_DegDayMax',
+                  'lai_class', , , , , , , , , 'lat_l0', 'L1_fAsp', , 'L1_HarSamCoeff',
+                  'L1_PrieTayAlpha', 'L1_Bulk_Surface_Resist', 'L1_Max_Canopy_Intercept',
+                  'L1_PET_LAI_correction_factor', 'L1_Aerodyn_resist', ,
+                  'L1_latitude'
+    from_file(1:117) = '../../static/<BASIN>/mpr/land_cover.nc', '../../static/<BASIN>/mpr/clay.nc',
+                       , , '../../static/<BASIN>/mpr/sand.nc', , , '../../static/<BASIN>/mpr/bd.nc',
+                       , , '../../static/<BASIN>/routing/dem.nc', '../../static/<BASIN>/mpr/slope.nc',
+                       '../../static/<BASIN>/mpr/aspect.nc', , , , , , , , , , , , , ,
+                       , , , , , , , , , , , , , , , , , , , , , , , , ,
+                       , , , , , , , , , , , , , , , , , , , , , , , , ,
+                       , , , , , , '../../static/<BASIN>/mpr/karstic.nc',
+                       , '../../static/<BASIN>/mpr/classunit.nc', ,
+                       , , , , , , , , , , , '../../static/<BASIN>/mpr/lai_class.nc',
+                       , , , , , , , , '../../static/<BASIN>/mpr/latlon.nc',
+                       , , , , , , , , , ,
+    to_file(1:117) = .false., .false., .false., .false., .false., .false.,
+                     .false., .false., .false., .false., .false., .false.,
+                     .false., .false., .false., .false., .false., .false.,
+                     .false., .false., .false., .false., .false., .false., .false., .false., .false.,
+                     .false., .false., .false., .false., .false., .false.,
+                     .false., .false., .false., .false., .false., .false.,
+                     .false., .false., .false., .false., .false., .false.,
+                     .false., .false., .false., .false., .false., .false.,
+                     .false., .false., .false., .false., , .false., .false.,
+                     .false., .false., , , , .false., .false., , , , , ,
+                     , .false., .false., , , .false., .false., .false.,
+                     , , , , .false., , .false., , , , .false., .false.,
+                     , , .false., , , , , .false., , , , , , , , , .false.,
+                     , , , , , , , , , ,
+    limits(1:2,1) = , ,
+    limits(1:2,2) = 0.1, ,
+    limits(1:2,3) = , ,
+    limits(1:2,4) = , ,
+    limits(1:2,5) = 0.1, ,
+    limits(1:2,6) = , ,
+    limits(1:2,7) = , ,
+    limits(1:2,8) = , ,
+    limits(1:2,9) = , ,
+    limits(1:2,10) = , ,
+    limits(1:2,11) = , ,
+    limits(1:2,12) = 0.01, ,
+    limits(1:2,13) = 1.0, ,
+    limits(1:2,14) = , ,
+    limits(1:2,15) = , ,
+    limits(1:2,16) = , ,
+    limits(1:2,17) = , ,
+    limits(1:2,18) = , ,
+    limits(1:2,19) = , ,
+    limits(1:2,20) = , ,
+    limits(1:2,21) = , ,
+    limits(1:2,22) = , ,
+    limits(1:2,23) = , ,
+    limits(1:2,24) = , ,
+    limits(1:2,25) = , ,
+    limits(1:2,26) = 1.1, ,
+    limits(1:2,27) = , ,
+    limits(1:2,28) = , ,
+    limits(1:2,29) = , ,
+    limits(1:2,30) = , ,
+    limits(1:2,31) = 0.01, 1.0
+    limits(1:2,32) = 1.01, ,
+    limits(1:2,33) = 1e-05, ,
+    limits(1:2,34) = 0.01, 1.0
+    limits(1:2,35) = 1.01, ,
+    limits(1:2,36) = 1e-05, ,
+    limits(1:2,37) = , ,
+    limits(1:2,38) = , ,
+    limits(1:2,39) = , ,
+    limits(1:2,40) = , ,
+    limits(1:2,41) = , ,
+    limits(1:2,42) = , ,
+    limits(1:2,43) = , ,
+    limits(1:2,44) = , ,
+    limits(1:2,45) = , ,
+    limits(1:2,46) = , ,
+    limits(1:2,47) = , ,
+    limits(1:2,48) = , ,
+    limits(1:2,49) = , ,
+    limits(1:2,50) = , ,
+    limits(1:2,51) = , ,
+    limits(1:2,52) = , ,
+    limits(1:2,53) = , ,
+    limits(1:2,54) = , ,
+    limits(1:2,55) = , ,
+    limits(1:2,56) = 0.0001, ,
+    limits(1:2,57) = , ,
+    limits(1:2,58) = , ,
+    limits(1:2,59) = , ,
+    limits(1:2,60) = , ,
+    limits(1:2,61) = , ,
+    limits(1:2,62) = 0.0001, ,
+    limits(1:2,63) = 0.0001, ,
+    limits(1:2,64) = , ,
+    limits(1:2,65) = , ,
+    limits(1:2,66) = , ,
+    limits(1:2,67) = , ,
+    limits(1:2,68) = , ,
+    limits(1:2,69) = , ,
+    limits(1:2,70) = , ,
+    limits(1:2,71) = , ,
+    limits(1:2,72) = , ,
+    limits(1:2,73) = , ,
+    limits(1:2,74) = , ,
+    limits(1:2,75) = , ,
+    limits(1:2,76) = , ,
+    limits(1:2,77) = , ,
+    limits(1:2,78) = 1.0, ,
+    limits(1:2,79) = 2.0, ,
+    limits(1:2,80) = , ,
+    limits(1:2,81) = , ,
+    limits(1:2,82) = 2.0, ,
+    limits(1:2,83) = , ,
+    limits(1:2,84) = , ,
+    limits(1:2,85) = , ,
+    limits(1:2,86) = , ,
+    limits(1:2,87) = , ,
+    limits(1:2,88) = , ,
+    limits(1:2,89) = , ,
+    limits(1:2,90) = , ,
+    limits(1:2,91) = , ,
+    limits(1:2,92) = , ,
+    limits(1:2,93) = , ,
+    limits(1:2,94) = , ,
+    limits(1:2,95) = , ,
+    limits(1:2,96) = , ,
+    limits(1:2,97) = , ,
+    limits(1:2,98) = 1e-10, 30.0
+    limits(1,99) = ,
+    limits(1,100) = ,
+    limits(1,101) = ,
+    limits(1,102) = ,
+    limits(1,103) = ,
+    limits(1,104) = ,
+    limits(1,105) = ,
+    limits(1,106) = ,
+    from_data_arrays(1:3,1) = , , ,
+    from_data_arrays(1:3,2) = , , ,
+    from_data_arrays(1:3,3) = 'clay', , ,
+    from_data_arrays(1:3,4) = 'clay', , ,
+    from_data_arrays(1:3,5) = , , ,
+    from_data_arrays(1:3,6) = 'sand', , ,
+    from_data_arrays(1:3,7) = 'sand', , ,
+    from_data_arrays(1:3,8) = , , ,
+    from_data_arrays(1:3,9) = 'bd', , ,
+    from_data_arrays(1:3,10) = 'bd', , ,
+    from_data_arrays(1:3,11) = , , ,
+    from_data_arrays(1:3,12) = , , ,
+    from_data_arrays(1:3,13) = , , ,
+    from_data_arrays(1:3,14) = 'land_cover', , ,
+    from_data_arrays(1:3,15) = 'pOM', , ,
+    from_data_arrays(1:3,16) = 'bd_till', 'pOM', 'pM'
+    from_data_arrays(1:3,17) = 'slope', , ,
+    from_data_arrays(1:3,18) = 'dem', , ,
+    from_data_arrays(1:3,19) = 'aspect', , ,
+    from_data_arrays(1:3,20) = 'aspect', , ,
+    from_data_arrays(1:3,21) = 'dem', , ,
+    from_data_arrays(1:3,22) = 'slope', , ,
+    from_data_arrays(1:3,23) = 'aspect', , ,
+    from_data_arrays(1:3,24) = 'dem', , ,
+    from_data_arrays(1:3,25) = 'slope', , ,
+    from_data_arrays(1:3,26) = 'sand', 'clay', ,
+    from_data_arrays(1:3,27) = 'KSat', , ,
+    from_data_arrays(1:3,28) = 'KSat_till_temp', 'bd_till', 'bd_eff_till'
+    from_data_arrays(1:3,29) = 'KSat', , ,
+    from_data_arrays(1:3,30) = 'KSat_till', 'KSat_notill', ,
+    from_data_arrays(1:3,31) = 'sand_till', 'clay_till', 'bd_eff_till'
+    from_data_arrays(1:3,32) = 'sand_till', 'clay_till', ,
+    from_data_arrays(1:3,33) = 'sand_till', 'clay_till', 'bd_eff_till'
+    from_data_arrays(1:3,34) = 'sand', 'clay', 'bd'
+    from_data_arrays(1:3,35) = 'sand', 'clay', ,
+    from_data_arrays(1:3,36) = 'sand', 'clay', 'bd'
+    from_data_arrays(1:3,37) = 'aspect', , ,
+    from_data_arrays(1:3,38) = 'aspect', , ,
+    from_data_arrays(1:3,39) = 'vGenu_alpha_till', 'vGenu_n_till', ,
+    from_data_arrays(1:3,40) = 'ThetaS_till', 'PermWiltPoint_temp_till',
+                               ,
+    from_data_arrays(1:3,41) = 'vGenu_alpha_notill', 'vGenu_n_notill', ,
+    from_data_arrays(1:3,42) = 'ThetaS_notill', 'PermWiltPoint_temp_notill',
+                               ,
+    from_data_arrays(1:3,43) = 'bd_eff_till', 'bd_notill', ,
+    from_data_arrays(1:3,44) = 'ThetaS_till', 'ThetaS_notill', ,
+    from_data_arrays(1:3,45) = 'PermWiltPoint_till', 'PermWiltPoint_notill',
+                               ,
+    from_data_arrays(1:3,46) = 'FieldCap_till', 'FieldCap_notill', ,
+    from_data_arrays(1:3,47) = 'ThetaS_all', , ,
+    from_data_arrays(1:3,48) = 'ThetaS_all', 'KSat_all', ,
+    from_data_arrays(1:3,49) = 'ThetaS_all', 'KSat_all', ,
+    from_data_arrays(1:3,50) = 'SatSoilMoistureContent_total', 'FieldCap_total',
+                               ,
+    from_data_arrays(1:3,51) = 'SatSoilMoistureContent_total', 'VarKSat_horizontal_total',
+                               ,
+    from_data_arrays(1:3,52) = 'SatSoilMoistureContent_total', 'VarKSat_vertical_total',
+                               ,
+    from_data_arrays(1:3,53) = 'ThetaS_all', , ,
+    from_data_arrays(1:3,54) = 'ThetaS_out', 'z.lower_bound', ,
+    from_data_arrays(1:3,55) = 'ThetaS_out', 'z.upper_bound', ,
+    from_data_arrays(1:3,56) = 'ThetaS_out', 'z_lower_bound', 'z_upper_bound'
+    from_data_arrays(1:3,57) = 'PermWiltPoint_out', 'z_lower_bound', 'z_upper_bound'
+    from_data_arrays(1:3,58) = 'FieldCap_till', 'FieldCap_notill', ,
+    from_data_arrays(1:3,59) = 'FieldCap_out', 'z_lower_bound', 'z_upper_bound'
+    from_data_arrays(1:3,60) = 'FieldCap_absolute_temp', , ,
+    from_data_arrays(1:3,61) = 'bd_all', , ,
+    from_data_arrays(1:3,62) = 'FieldCap_temp', 'L1_SatSoilMoisture', ,
+    from_data_arrays(1:3,63) = 'PermWiltPoint_temp', 'L1_FieldCap', ,
+    from_data_arrays(1:3,64) = 'land_cover', , ,
+    from_data_arrays(1:3,65) = 'land_cover_horizon', 'z_lower_bound', 'z_upper_bound'
+    from_data_arrays(1:3,66) = , , ,
+    from_data_arrays(1:3,67) = , , ,
+    from_data_arrays(1:3,68) = , , ,
+    from_data_arrays(1:3,69) = , , ,
+    from_data_arrays(1:3,70) = , , ,
+    from_data_arrays(1:3,71) = , , ,
+    from_data_arrays(1:3,72) = 'fRoots_temp', , ,
+    from_data_arrays(1:3,73) = 'fRoots_total', , ,
+    from_data_arrays(1:3,74) = 'fRoots_temp', 'fRoots_rescaled_total', ,
+    from_data_arrays(1:3,75) = 'SoilMoistureSaturationDeficit', , ,
+    from_data_arrays(1:3,76) = 'slope', , ,
+    from_data_arrays(1:3,77) = 'land_cover', , ,
+    from_data_arrays(1:3,78) = 'slope_emp', 'land_cover_horizon_all', ,
+    from_data_arrays(1:3,79) = 'slope_emp', 'VarKSat_horizontal_relative',
+                               ,
+    from_data_arrays(1:3,80) = 'FastFlow_temp', 'L1_SlowFlow', ,
+    from_data_arrays(1:3,81) = 'VarKSat_horizontal_relative', 'SoilMoistureSaturationDeficit',
+                               ,
+    from_data_arrays(1:3,82) = 'VarKSat_vertical_relative', 'SoilMoistureSaturationDeficit',
+                               ,
+    from_data_arrays(1:3,83) = , , ,
+    from_data_arrays(1:3,84) = 'karstic', , ,
+    from_data_arrays(1:3,85) = , , ,
+    from_data_arrays(1:3,86) = 'classunit', 'L1_SlowFlow', ,
+    from_data_arrays(1:3,87) = 'slope', , ,
+    from_data_arrays(1:3,88) = 'slope', , ,
+    from_data_arrays(1:3,89) = 'land_cover', , ,
+    from_data_arrays(1:3,90) = 'land_cover', , ,
+    from_data_arrays(1:3,91) = , , ,
+    from_data_arrays(1:3,92) = 'sealed_temp', , ,
+    from_data_arrays(1:3,93) = 'forest_frac', 'L1_SealedFraction', ,
+    from_data_arrays(1:3,94) = 'L1_SealedFraction', , ,
+    from_data_arrays(1:3,95) = 'L1_SealedFraction', , ,
+    from_data_arrays(1:3,96) = 'L1_SealedFraction', 'forest_frac', 'pervious_frac'
+    from_data_arrays(1:3,97) = 'L1_SealedFraction', 'forest_frac', 'pervious_frac'
+    from_data_arrays(1:3,98) = , , ,
+    from_data_arrays(1:3,99) = , , ,
+    from_data_arrays(1:3,100) = , , ,
+    from_data_arrays(1:3,101) = , , ,
+    from_data_arrays(1:3,102) = , , ,
+    from_data_arrays(1:3,103) = , , ,
+    from_data_arrays(1:3,104) = , , ,
+    from_data_arrays(1:3,105) = , , ,
+    from_data_arrays(1:3,106) = , , ,
+    from_data_arrays(1:3,107) = , , ,
+    from_data_arrays(1:3,108) = 'aspect', 'lat_l0', ,
+    from_data_arrays(1:3,109) = , , ,
+    from_data_arrays(1:3,110) = 'slope', , ,
+    from_data_arrays(1,111) = 'L1_HarSamCoeff'
+    from_data_arrays(1,112) = 'L1_HarSamCoeff'
+    from_data_arrays(1:3,113) = 'lai_class', , ,
+    from_data_arrays(1,114) = 'L1_HarSamCoeff'
+    from_data_arrays(1,115) = 'L1_HarSamCoeff'
+    from_data_arrays(1:3,116) = , , ,
+    from_data_arrays(1:3,117) = 'lat_l0', 'aspect', ,
+    target_coord_names(1:4,1) = , , , ,
+    target_coord_names(1:4,2) = , , , ,
+    target_coord_names(1:4,3) = 'land_cover_period', 'lat', 'lon', 'horizon_till'
+    target_coord_names(1:4,4) = 'land_cover_period', 'lat', 'lon', 'horizon_notill'
+    target_coord_names(1:4,5) = , , , ,
+    target_coord_names(1:4,6) = 'land_cover_period', 'lat', 'lon', 'horizon_till'
+    target_coord_names(1:4,7) = 'land_cover_period', 'lat', 'lon', 'horizon_notill'
+    target_coord_names(1:4,8) = , , , ,
+    target_coord_names(1:4,9) = 'land_cover_period', 'lat', 'lon', 'horizon_till'
+    target_coord_names(1:4,10) = 'land_cover_period', 'lat', 'lon', 'horizon_notill'
+    target_coord_names(1:4,11) = , , , ,
+    target_coord_names(1:4,12) = , , , ,
+    target_coord_names(1:4,13) = , , , ,
+    target_coord_names(1:4,14) = 'land_cover_period', 'lat', 'lon', 'horizon_till'
+    target_coord_names(1:4,15) = , , , ,
+    target_coord_names(1:4,16) = , , , ,
+    target_coord_names(1:3,17) = 'lat', 'lon', 'horizon'
+    target_coord_names(1:3,18) = 'lat', 'lon', 'horizon'
+    target_coord_names(1:3,19) = 'lat', 'lon', 'horizon'
+    target_coord_names(1:4,20) = 'land_cover_period', 'lat', 'lon', 'horizon_till'
+    target_coord_names(1:4,21) = 'land_cover_period', 'lat', 'lon', 'horizon_till'
+    target_coord_names(1:4,22) = 'land_cover_period', 'lat', 'lon', 'horizon_till'
+    target_coord_names(1:4,23) = 'land_cover_period', 'lat', 'lon', 'horizon_notill'
+    target_coord_names(1:4,24) = 'land_cover_period', 'lat', 'lon', 'horizon_notill'
+    target_coord_names(1:4,25) = 'land_cover_period', 'lat', 'lon', 'horizon_notill'
+    target_coord_names(1:4,26) = , , , ,
+    target_coord_names(1:4,27) = 'land_cover_period', 'lat', 'lon', 'horizon_till'
+    target_coord_names(1:4,28) = , , , ,
+    target_coord_names(1:4,29) = 'land_cover_period', 'lat', 'lon', 'horizon_notill'
+    target_coord_names(1:4,30) = , , , ,
+    target_coord_names(1:4,31) = , , , ,
+    target_coord_names(1:4,32) = , , , ,
+    target_coord_names(1:4,33) = , , , ,
+    target_coord_names(1:4,34) = 'land_cover_period', 'lat', 'lon', 'horizon_notill'
+    target_coord_names(1:4,35) = 'land_cover_period', 'lat', 'lon', 'horizon_notill'
+    target_coord_names(1:4,36) = 'land_cover_period', 'lat', 'lon', 'horizon_notill'
+    target_coord_names(1:4,37) = 'land_cover_period', 'lat', 'lon', 'horizon_till'
+    target_coord_names(1:4,38) = 'land_cover_period', 'lat', 'lon', 'horizon_notill'
+    target_coord_names(1:4,39) = , , , ,
+    target_coord_names(1:4,40) = , , , ,
+    target_coord_names(1:4,41) = , , , ,
+    target_coord_names(1:4,42) = , , , ,
+    target_coord_names(1:4,43) = , , , ,
+    target_coord_names(1:4,44) = , , , ,
+    target_coord_names(1:4,45) = 'land_cover_period_out', 'lat', 'lon',
+                                 'horizon_out'
+    target_coord_names(1:4,46) = 'land_cover_period', 'lat', 'lon', 'horizon_all'
+    target_coord_names(1:4,47) = 'land_cover_period', 'lat', 'lon', 'horizon_all'
+    target_coord_names(1:4,48) = 'land_cover_period', 'lat', 'lon', 'horizon_all'
+    target_coord_names(1:4,49) = 'land_cover_period', 'lat', 'lon', 'horizon_all'
+    target_coord_names(1:4,50) = , , , ,
+    target_coord_names(1:4,51) = , , , ,
+    target_coord_names(1:4,52) = , , , ,
+    target_coord_names(1:4,53) = 'land_cover_period_out', 'lat', 'lon',
+                                 'horizon_out'
+    target_coord_names(1:4,54) = , , , ,
+    target_coord_names(1:4,55) = , , , ,
+    target_coord_names(1:4,56) = 'land_cover_period_out', 'lat_out', 'lon_out',
+                                 'horizon_out'
+    target_coord_names(1:4,57) = 'land_cover_period_out', 'lat_out', 'lon_out',
+                                 'horizon_out'
+    target_coord_names(1:4,58) = 'land_cover_period_out', 'lat', 'lon',
+                                 'horizon_out'
+    target_coord_names(1:4,59) = , , , ,
+    target_coord_names(1:4,60) = 'land_cover_period_out', 'lat_out', 'lon_out',
+                                 'horizon_out'
+    target_coord_names(1:4,61) = 'land_cover_period_out', 'lat_out', 'lon_out',
+                                 'horizon_out'
+    target_coord_names(1:4,62) = , , , ,
+    target_coord_names(1:4,63) = , , , ,
+    target_coord_names(1:4,64) = 'land_cover_period', 'lat', 'lon', 'horizon_out'
+    target_coord_names(1:4,65) = 'land_cover_period_out', 'lat_out', 'lon_out',
+                                 'horizon_out'
+    target_coord_names(1:4,66) = , , , ,
+    target_coord_names(1:4,67) = , , , ,
+    target_coord_names(1:4,68) = , , , ,
+    target_coord_names(1:4,69) = , , , ,
+    target_coord_names(1:4,70) = , , , ,
+    target_coord_names(1:4,71) = , , , ,
+    target_coord_names(1:4,72) = 'land_cover_period_out', 'lat_out', 'lon_out',
+                                 'horizon_all'
+    target_coord_names(1:4,73) = 'land_cover_period_out', 'lat_out', 'lon_out',
+                                 'horizon_out'
+    target_coord_names(1:4,74) = , , , ,
+    target_coord_names(1:4,75) = 'land_cover_period_out', 'lat_out', 'lon_out',
+                                 'horizon_all'
+    target_coord_names(1:4,76) = 'land_cover_period', 'lat', 'lon', 'horizon_all'
+    target_coord_names(1:4,77) = 'land_cover_period', 'lat', 'lon', 'horizon_all'
+    target_coord_names(1:4,78) = 'land_cover_period_out', 'lat_out', 'lon_out',
+                                 'horizon_all'
+    target_coord_names(1:4,79) = 'land_cover_period_out', 'lat_out', 'lon_out',
+                                 'horizon_all'
+    target_coord_names(1:4,80) = , , , ,
+    target_coord_names(1:4,81) = 'land_cover_period_out', 'lat_out', 'lon_out',
+                                 'horizon_all'
+    target_coord_names(1:4,82) = 'land_cover_period_out', 'lat_out', 'lon_out',
+                                 'horizon_all'
+    target_coord_names(1:4,83) = 'lat_out', 'lon_out', , ,
+    target_coord_names(1:4,84) = , , , ,
+    target_coord_names(1:4,85) = 'land_cover_period_out', 'lat_out', 'lon_out',
+                                 'horizon_all'
+    target_coord_names(1:4,86) = , , , ,
+    target_coord_names(1:4,87) = 'lat_out', 'lon_out', , ,
+    target_coord_names(1:4,88) = 'lat_out', 'lon_out', , ,
+    target_coord_names(1:4,89) = 'land_cover_period_out', 'lat_out', 'lon_out',
+                                 ,
+    target_coord_names(1:4,90) = 'land_cover_period_out', 'lat_out', 'lon_out',
+                                 ,
+    target_coord_names(1:4,91) = , , , ,
+    target_coord_names(1:4,92) = , , , ,
+    target_coord_names(1:4,93) = , , , ,
+    target_coord_names(1:4,94) = , , , ,
+    target_coord_names(1:4,95) = , , , ,
+    target_coord_names(1:4,96) = , , , ,
+    target_coord_names(1:4,97) = , , , ,
+    target_coord_names(1:4,98) = , , , ,
+    target_coord_names(1:4,99) = , , , ,
+    target_coord_names(1:4,100) = , , , ,
+    target_coord_names(1:4,101) = , , , ,
+    target_coord_names(1:4,102) = , , , ,
+    target_coord_names(1:4,103) = , , , ,
+    target_coord_names(1:4,104) = , , , ,
+    target_coord_names(1:4,105) = , , , ,
+    target_coord_names(1:4,106) = , , , ,
+    target_coord_names(1:4,107) = , , , ,
+    target_coord_names(1:4,108) = 'lat_out', 'lon_out', , ,
+    target_coord_names(1:4,109) = , , , ,
+    target_coord_names(1:4,110) = 'lat_out', 'lon_out', , ,
+    target_coord_names(1:3,111) = 'month_of_year', 'lat_out', 'lon_out'
+    target_coord_names(1:3,112) = 'month_of_year', 'lat_out', 'lon_out'
+    target_coord_names(1:4,113) = 'month_of_year', 'lat_out', 'lon_out',
+                                  ,
+    target_coord_names(1:4,114) = 'land_cover_period_out', 'month_of_year',
+                                  'lat_out', 'lon_out'
+    target_coord_names(1:4,115) = 'land_cover_period_out', 'month_of_year',
+                                  'lat_out', 'lon_out'
+    target_coord_names(1:4,116) = , , , ,
+    target_coord_names(1:4,117) = 'lat_out', 'lon_out', , ,
+    upscale_ops(1:4,1) = , , , ,
+    upscale_ops(1:4,2) = , , , ,
+    upscale_ops(1:4,3) = '1.0', '1.0', '1.0', '1.0'
+    upscale_ops(1:4,4) = '1.0', '1.0', '1.0', '1.0'
+    upscale_ops(1:4,5) = , , , ,
+    upscale_ops(1:4,6) = '1.0', '1.0', '1.0', '1.0'
+    upscale_ops(1:4,7) = '1.0', '1.0', '1.0', '1.0'
+    upscale_ops(1:4,8) = , , , ,
+    upscale_ops(1:4,9) = '1.0', '1.0', '1.0', '1.0'
+    upscale_ops(1:4,10) = '1.0', '1.0', '1.0', '1.0'
+    upscale_ops(1:4,11) = , , , ,
+    upscale_ops(1:4,12) = , , , ,
+    upscale_ops(1:4,13) = , , , ,
+    upscale_ops(1:4,14) = '1.0', '1.0', '1.0', '1.0'
+    upscale_ops(1:4,15) = , , , ,
+    upscale_ops(1:4,16) = , , , ,
+    upscale_ops(1:4,17) = '1.0', '1.0', '1.0'
+    upscale_ops(1:4,18) = '1.0', '1.0', '1.0'
+    upscale_ops(1:4,19) = '1.0', '1.0', '1.0'
+    upscale_ops(1:4,20) = '1.0', '1.0', '1.0', '1.0'
+    upscale_ops(1:4,21) = '1.0', '1.0', '1.0', '1.0'
+    upscale_ops(1:4,22) = '1.0', '1.0', '1.0', '1.0'
+    upscale_ops(1:4,23) = '1.0', '1.0', '1.0', '1.0'
+    upscale_ops(1:4,24) = '1.0', '1.0', '1.0', '1.0'
+    upscale_ops(1:4,25) = '1.0', '1.0', '1.0', '1.0'
+    upscale_ops(1:4,26) = , , , ,
+    upscale_ops(1:4,27) = '1.0', '1.0', '1.0', '1.0'
+    upscale_ops(1:4,28) = , , , ,
+    upscale_ops(1:4,29) = '1.0', '1.0', '1.0', '1.0'
+    upscale_ops(1:4,30) = , , , ,
+    upscale_ops(1:4,31) = , , , ,
+    upscale_ops(1:4,32) = , , , ,
+    upscale_ops(1:4,33) = , , , ,
+    upscale_ops(1:4,34) = '1.0', '1.0', '1.0', '1.0'
+    upscale_ops(1:4,35) = '1.0', '1.0', '1.0', '1.0'
+    upscale_ops(1:4,36) = '1.0', '1.0', '1.0', '1.0'
+    upscale_ops(1:4,37) = '1.0', '1.0', '1.0', '1.0'
+    upscale_ops(1:4,38) = '1.0', '1.0', '1.0', '1.0'
+    upscale_ops(1:4,39) = , , , ,
+    upscale_ops(1:4,40) = , , , ,
+    upscale_ops(1:4,41) = , , , ,
+    upscale_ops(1:4,42) = , , , ,
+    upscale_ops(1:4,43) = , , , ,
+    upscale_ops(1:4,44) = , , , ,
+    upscale_ops(1:4,45) = '1.0', '1.0', '1.0', '1.0'
+    upscale_ops(1:4,46) = '1.0', '1.0', '1.0', 'sum'
+    upscale_ops(1:4,47) = '1.0', '1.0', '1.0', 'sum'
+    upscale_ops(1:4,48) = '1.0', '1.0', '1.0', 'sum'
+    upscale_ops(1:4,49) = '1.0', '1.0', '1.0', 'sum'
+    upscale_ops(1:4,50) = , , , ,
+    upscale_ops(1:4,51) = , , , ,
+    upscale_ops(1:4,52) = , , , ,
+    upscale_ops(1:4,53) = '1.0', '1.0', '1.0', '1.0'
+    upscale_ops(1:4,54) = , , , ,
+    upscale_ops(1:4,55) = , , , ,
+    upscale_ops(1:4,56) = '1.0', '-1.0', '-1.0', '1.0'
+    upscale_ops(1:4,57) = '1.0', '-1.0', '-1.0', 'sum'
+    upscale_ops(1:4,58) = '1.0', '1.0', '1.0', '1.0'
+    upscale_ops(1:4,59) = , , , ,
+    upscale_ops(1:4,60) = '1.0', '-1.0', '-1.0', 'sum'
+    upscale_ops(1:4,61) = '1.0', '-1.0', '-1.0', '1.0'
+    upscale_ops(1:4,62) = , , , ,
+    upscale_ops(1:4,63) = , , , ,
+    upscale_ops(1:4,64) = '1.0', '1.0', '1.0', '1.0'
+    upscale_ops(1:4,65) = '1.0', '-1.0', '-1.0', 'sum'
+    upscale_ops(1:4,66) = , , , ,
+    upscale_ops(1:4,67) = , , , ,
+    upscale_ops(1:4,68) = , , , ,
+    upscale_ops(1:4,69) = , , , ,
+    upscale_ops(1:4,70) = , , , ,
+    upscale_ops(1:4,71) = , , , ,
+    upscale_ops(1:4,72) = '1.0', '1.0', '1.0', 'sum'
+    upscale_ops(1:4,73) = '1.0', '1.0', '1.0', '1.0'
+    upscale_ops(1:4,74) = , , , ,
+    upscale_ops(1:4,75) = '1.0', '1.0', '1.0', '1.0'
+    upscale_ops(1:4,76) = '1.0', '1.0', '1.0', '1.0'
+    upscale_ops(1:4,77) = '1.0', '1.0', '1.0', '1.0'
+    upscale_ops(1:4,78) = '1.0', '1.0', '1.0', '1.0'
+    upscale_ops(1:4,79) = '1.0', '1.0', '1.0', '1.0'
+    upscale_ops(1:4,80) = , , , ,
+    upscale_ops(1:4,81) = '1.0', '1.0', '1.0', '1.0'
+    upscale_ops(1:4,82) = '1.0', '1.0', '1.0', '1.0'
+    upscale_ops(1:4,83) = '1.0', '1.0', , ,
+    upscale_ops(1:4,84) = , , , ,
+    upscale_ops(1:4,85) = '1.0', '1.0', '1.0', '1.0'
+    upscale_ops(1:4,86) = , , , ,
+    upscale_ops(1:4,87) = '1.0', '1.0', , ,
+    upscale_ops(1:4,88) = '1.0', '1.0', , ,
+    upscale_ops(1:4,89) = '1.0', '1.0', '1.0', ,
+    upscale_ops(1:4,90) = '1.0', '1.0', '1.0', ,
+    upscale_ops(1:4,91) = , , , ,
+    upscale_ops(1:4,92) = , , , ,
+    upscale_ops(1:4,93) = , , , ,
+    upscale_ops(1:4,94) = , , , ,
+    upscale_ops(1:4,95) = , , , ,
+    upscale_ops(1:4,96) = , , , ,
+    upscale_ops(1:4,97) = , , , ,
+    upscale_ops(1:4,98) = , , , ,
+    upscale_ops(1:4,99) = , , , ,
+    upscale_ops(1:4,100) = , , , ,
+    upscale_ops(1:4,101) = , , , ,
+    upscale_ops(1:4,102) = , , , ,
+    upscale_ops(1:4,103) = , , , ,
+    upscale_ops(1:4,104) = , , , ,
+    upscale_ops(1:4,105) = , , , ,
+    upscale_ops(1:4,106) = , , , ,
+    upscale_ops(1:4,107) = , , , ,
+    upscale_ops(1:4,108) = '1.0', '1.0', , ,
+    upscale_ops(1:4,109) = , , , ,
+    upscale_ops(1:4,110) = '1.0', '1.0', , ,
+    upscale_ops(1:3,111) = '1.0', '1.0', '1.0'
+    upscale_ops(1:3,112) = '1.0', '1.0', '1.0'
+    upscale_ops(1:4,113) = '1.0', '1.0', '1.0', ,
+    upscale_ops(1:4,114) = '1.0', '1.0', '1.0', '1.0'
+    upscale_ops(1:4,115) = '1.0', '1.0', '1.0', '1.0'
+    upscale_ops(1:4,116) = , , , ,
+    upscale_ops(1:4,117) = '1.0', '1.0', , ,
+    transfer_func(1:117) = , , , , , , , , , , , , , 'where (land_cover > 0.5 .and. land_cover < 1.5) orgMatterContent_forest +orgMatterContent_pervious else where(land_cover < 2.5) orgMatterContent_impervious else where (land_cover < 3.5) orgMatterContent_pervious',
+                           '100.0 - pOM', '100.0 / ((pOM / BulkDens_OrgMatter) + (pM / bd_till))', , , ,
+                            , , , , , ,
+                           'KSat_dummy',
+                           , 'KSat_till_temp * (bd_till / bd_eff_till)',
+                           , , 'where (sand_till < vGenu_tresh ) PTF_lower66_5_constant + PTF_lower66_5_clay *clay_till + PTF_lower66_5_Db * bd_eff_till else where ( sand_till >= vGenu_tresh )PTF_higher66_5_constant + PTF_higher66_5_clay *clay_till + PTF_higher66_5_Db * bd_eff_till',
+                           'where (sand_till < vGenu_tresh )vGenu_N_c01 - vGenu_N_c02 * (sand_till ** (vGenu_N_c03)) + vGenu_N_c04 * (clay_till **(vGenu_N_c05))else where ( sand_till >= vGenu_tresh )vGenu_N_c10 + vGenu_N_c11 * (sand_till ** (vGenu_N_c12)) + vGenu_N_c13 * (clay_till **(vGenu_N_c14))',
+                           'where (sand_till < vGenu_tresh )exp(vGenu_N_c06 + vGenu_N_c07 * sand_till + vGenu_N_c08 * clay_till - vGenu_N_c09 * bd_eff_till)else where ( sand_till >= vGenu_tresh )exp(vGenu_N_c15 + vGenu_N_c16 * sand_till + vGenu_N_c17 * clay_till - vGenu_N_c18 * bd_eff_till)',
+                           'where (sand < vGenu_tresh ) PTF_lower66_5_constant + PTF_lower66_5_clay *clay + PTF_lower66_5_Db * bd else where ( sand >= vGenu_tresh )PTF_higher66_5_constant + PTF_higher66_5_clay *clay + PTF_higher66_5_Db * bd',
+                           'where (sand < vGenu_tresh )vGenu_N_c01 - vGenu_N_c02 * (sand **(vGenu_N_c03)) + vGenu_N_c04 * (clay **(vGenu_N_c05))else where ( sand >= vGenu_tresh )vGenu_N_c10 + vGenu_N_c11 * (sand**(vGenu_N_c12)) + vGenu_N_c13 * (clay **(vGenu_N_c14))',
+                           'where (sand < vGenu_tresh )exp(vGenu_N_c06 + vGenu_N_c07 * sand + vGenu_N_c08 * clay - vGenu_N_c09 * bd)else where ( sand >= vGenu_tresh )exp(vGenu_N_c15 + vGenu_N_c16 * sand + vGenu_N_c17 * clay - vGenu_N_c18 * bd)',
+                           'FieldCap_till_dummy',
+                           'FieldCap_notill_dummy',
+                           'exp ((PWP_c - (PWP_c / vGenu_n_till)) *log(PWP_c + exp(vGenu_n_till * log(vGenu_alpha_till * PWP_matPot_ThetaR))))',
+                           'where (PermWiltPoint_temp_till < 1.0) ThetaS_till else ThetaS_till / PermWiltPoint_temp_till',
+                           'exp ((PWP_c - (PWP_c / vGenu_n_notill)) *log(PWP_c + exp(vGenu_n_notill * log(vGenu_alpha_notill * PWP_matPot_ThetaR))))',
+                           'where (PermWiltPoint_temp_notill < 1.0) ThetaS_notill else ThetaS_notill / PermWiltPoint_temp_notill',
+                           , , , , , 'ThetaS_all * KSat_all', 'ThetaS_all / KSat_all',
+                           '(SatSoilMoistureContent_total - FieldCap_total) / SatSoilMoistureContent_total',
+                           'VarKSat_horizontal_total / SatSoilMoistureContent_total / PTF_Ks_curveSlope',
+                           'SatSoilMoistureContent_total / VarKSat_vertical_total / PTF_Ks_curveSlope',
+                           , 'z.lower_bound', 'z.upper_bound', 'ThetaS_out * (z_upper_bound - z_lower_bound) * 1000.0',
+                           'PermWiltPoint_out * (z_upper_bound - z_lower_bound) * 1000.0',
+                           , 'FieldCap_out * (z_upper_bound - z_lower_bound) * 1000.0',
+                           , 'bd_all * infiltrationShapeFactor', 'where (FieldCap_temp > L1_SatSoilMoisture) 0.99 * L1_SatSoilMoisture else FieldCap_temp',
+                           'where (PermWiltPoint_temp > L1_FieldCap) 0.99 * L1_FieldCap else PermWiltPoint_temp',
+                           , 'where (land_cover_horizon > 0.5 .and. land_cover_horizon < 1.5)(1.0 - rootFractionCoefficient_forest ** (z_upper_bound * 100.0)) - (1.0 - rootFractionCoefficient_forest ** (z_lower_bound * 100.0))else where (land_cover_horizon < 2.5)(1.0 - rootFractionCoefficient_impervious ** (z_upper_bound * 100.0)) - (1.0 - rootFractionCoefficient_impervious ** (z_lower_bound * 100.0))else where (land_cover_horizon < 3.5)(1.0 - (rootFractionCoefficient_forest - rootFractionCoefficient_pervious) ** (z_upper_bound * 100.0)) -(1.0 - (rootFractionCoefficient_forest - rootFractionCoefficient_pervious) ** (z_lower_bound * 100.0))',
+                           , , , , , , , , 'fRoots_temp / fRoots_rescaled_total',
+                           'interflowStorageCapacityFactor * SoilMoistureSaturationDeficit',
+                           'empirical_cdf', , 'where (land_cover_horizon_all > 0.5 .and. land_cover_horizon_all < 1.5)fastInterflowRecession_forest * interflowRecession_slope * (2.0 - slope_emp)else interflowRecession_slope * (2.0 - slope_emp)',
+                           'interflowRecession_slope * (2.0 - slope_emp) +slowInterflowRecession_Ks * (1.0 + VarKSat_horizontal_relative)',
+                           'where (FastFlow_temp > L1_SlowFlow) L1_SlowFlow else FastFlow_temp',
+                           'exponentSlowInterflow * (1.0 / VarKSat_horizontal_relative) *(1.0 / (1.0 + SoilMoistureSaturationDeficit))',
+                           'rechargeCoefficient * (1.0 + SoilMoistureSaturationDeficit) / (1.0 + VarKSat_vertical_relative)',
+                           , '1.0 - (rechargeFactor_karstic * karstic)',
+                           'where (classunit > -0.5 .and. classunit < 0.5) base_flow_geo_unit_01 else where (classunit > 1.5 .and. classunit < 2.5) base_flow_geo_unit_02 else where (classunit > 2.5 .and. classunit < 3.5) base_flow_geo_unit_03 else where (classunit > 3.5 .and. classunit < 4.5) base_flow_geo_unit_04 else where (classunit > 4.5 .and. classunit < 5.5) base_flow_geo_unit_05 else where (classunit > 5.5 .and. classunit < 6.5) base_flow_geo_unit_06 else where (classunit > 6.5 .and. classunit < 7.5) base_flow_geo_unit_07 else where (classunit > 7.5 .and. classunit < 8.5) base_flow_geo_unit_08 else where (classunit > 8.5 .and. classunit < 9.5) base_flow_geo_unit_09 else where (classunit > 9.5 .and. classunit < 10.5) base_flow_geo_unit_10 else where (classunit > 10.5 .and. classunit < 11.5) base_flow_geo_unit_11 else where (classunit > 11.5 .and. classunit < 12.5) base_flow_geo_unit_12 else where (classunit > 98.5 .and. classunit < 99.5) base_flow_geo_unit_13 else where (classunit > 101.5 .and. classunit < 102.5) base_flow_geo_unit_14 else where (classunit > 102.5 .and. classunit < 103.5) base_flow_geo_unit_15 else where (classunit > 103.5 .and. classunit < 104.5) base_flow_geo_unit_16 else where (classunit > 104.5 .and. classunit < 105.5) base_flow_geo_unit_17 else where (classunit > 105.5 .and. classunit < 106.5) base_flow_geo_unit_18 else where (classunit > 106.5 .and. classunit < 107.5) base_flow_geo_unit_19 else where (classunit > 108.5 .and. classunit < 109.5) base_flow_geo_unit_20 else where (classunit > 109.5 .and. classunit < 110.5) base_flow_geo_unit_21 else where (classunit > 110.5 .and. classunit < 111.5) base_flow_geo_unit_22 else where (classunit > 111.5 .and. classunit < 112.5) base_flow_geo_unit_23',
+                           'where (classunit < L1_SlowFlow) L1_SlowFlow else classunit',
+                           'imperviousStorageCapacity', 'jarvis_sm_threshold_c1',
+                           'where (land_cover > 0.5 .and. land_cover < 1.5) 1.0 else 0.0',
+                           'where (land_cover > 1.5 .and. land_cover < 2.5) 1.0 else 0.0',
+                           , 'sealed_temp * fracSealed_cityArea', '1.0 - forest_frac - L1_SealedFraction',
+                           'snowThresholdTemperature', 'increaseDegreeDayFactorByPrecip',
+                           'degreeDayFactor_forest * forest_frac +(degreeDayFactor_forest + degreeDayFactor_pervious + degreeDayFactor_impervious) * L1_SealedFraction +(degreeDayFactor_forest + degreeDayFactor_pervious) * pervious_frac',
+                           '(degreeDayFactor_forest + maxDegreeDayFactor_forest) * forest_frac +(degreeDayFactor_forest + degreeDayFactor_pervious + degreeDayFactor_impervious + maxDegreeDayFactor_impervious) * L1_SealedFraction +(degreeDayFactor_forest + degreeDayFactor_pervious + maxDegreeDayFactor_pervious) * pervious_frac',
+                           , , , , , , , , , , 'where (lat_l0 > 0.0 .and. aspect < aspectThresholdPET)minCorrectionFactorPET + maxCorrectionFactorPET / aspectThresholdPET * aspect else where (lat_l0 > 0.0)minCorrectionFactorPET + maxCorrectionFactorPET / (360.0 - aspectThresholdPET) * (360.0 - aspect)else where (aspect < aspectThresholdPET)minCorrectionFactorPET + maxCorrectionFactorPET / (360.0 - aspectThresholdPET) * (360.0 - aspect)else minCorrectionFactorPET + maxCorrectionFactorPET / aspectThresholdPET * aspect',
+                           , 'HargreavesSamaniCoeff', '1.0', '1.0', 'canopyInterceptionFactor * lai_class',
+                           '1.0', '1.0', , 'lat_l0'
+/

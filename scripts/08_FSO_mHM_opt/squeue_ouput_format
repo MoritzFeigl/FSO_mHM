@@ -1,0 +1,1 @@
+export SQUEUE_FORMAT="%.18i %.9P %.18j %.8u %.2t %.10M %.6D %.20R %q"

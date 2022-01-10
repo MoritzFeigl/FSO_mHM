@@ -1,0 +1,17 @@
+Workflow description for 05_mHM_MPR_preparation
+Moritz Feigl, Aug 2020
+
+This intial step includes compiling MPR and mHM and creates spatial predictors for FSO with MPR on the Vienna Scientific Cluster.
+The whole procedure is implemented as a bash script: 05_mHM_MPR_preparation.sh
+It includes following steps:
+      1. Download mHM and MPR from gitlab
+      2. Check if TFs are registered
+      3. Compile mHM and MPR
+      4. Create FSO spatial predictors with MPR
+
+The bash script includes two paths: PROJECTPATH, MPR_PATH and MHM_PATH.
+PROJECTPATH is the folder in which MPR, mHM and all FSO predictors should be saved
+MPR_PATH is the path to the directory containing the MPR namelists: mpr_global_parameter_mhm.nml and mpr_predictor_FSO_only.nml
+MHM_PATH is the path to the directory that contains the FSO_mHM_major_basins directory.
+
+To start the script run: ./05_mHM_MPR_preparation.sh
