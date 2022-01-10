@@ -39,3 +39,5 @@ For that the script [prepare_env.py](scripts/02_prepare_env_mHM/prepare_env.py) 
   - there are many more specifications, that can be tweaked
 
   ## License
+
+  [Apache License 2.0](https://github.com/MoritzFeigl/FSO_mHM/blob/master/LICENSE)
